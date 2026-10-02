@@ -112,3 +112,15 @@ A: 游戏使用了“独占全屏”模式，请改为“窗口化”或使用 X
 
 **Q2: 无法找到心率设备？**
 A: 请确保设备开启了心率广播，且电脑蓝牙功能正常。
+
+
+## 仓库范围与网络安全 / Repository scope and network safety
+
+本仓库是上游 [ccc007ccc/HeartRateMonitor](https://github.com/ccc007ccc/HeartRateMonitor) 的历史分支；以上下载及配套组件链接指向上游，不代表本仓库已发布或独立验证的版本。
+This repository is a historical fork of the upstream project. The download and companion links above refer to upstream releases, not releases or independent validation of this fork.
+
+API 和 WebSocket 服务默认监听所有网络接口，且没有身份验证。启用后，同一网络中能够访问这些端口的客户端可能读取心率数据。只在可信网络中启用，并通过防火墙限制访问；无需共享时保持关闭。
+The API and WebSocket servers listen on all network interfaces without authentication. Clients that can reach their ports may read heart-rate data. Enable them only on trusted networks with firewall restrictions, and leave them disabled when sharing is unnecessary.
+
+Windows 构建工作流存在，但本仓库没有自动化测试或已记录的 BLE、悬浮窗、Game Bar 运行验证。
+A Windows build workflow is present; this fork has no automated test suite or recorded BLE, overlay, or Game Bar runtime verification.
